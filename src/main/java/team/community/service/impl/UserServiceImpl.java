@@ -3,39 +3,14 @@ package team.community.service.impl;
 
 import team.community.bean.User;
 import team.community.service.UserService;
+import team.community.util.JdbcUtil;
 
 public class UserServiceImpl implements UserService {
-
-    private UserDao userDao = new UserDaoImpl();
     JdbcUtil jdbcUtil =new JdbcUtil();
 
-    /**
-     * 登录验证
-     * @param account
-     * @param password
-     * @return
-     */
     @Override
     public User login(String account, String password) {
-        //验证参数是否正确
-        if (account == null || "".equals(account)) {
-            return null;
-        }
-        if (password == null || "".equals(password)) {
-            return null;
-        }
-        //调用数据访问层获取数据或修改数据
-        User user = userDao.getUserByAccount(account);
-        if (user == null) {
-            System.out.println("账号不存在");
-            return null;
-        }
-        if (!user.getPassword().equals(password)){
-            System.out.println("密码错误");
-            return null;
-        }
-        //返回用户数据
-        return user;
+        return null;
     }
 
     @Override
@@ -43,41 +18,19 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-
-    @Override
-    public boolean insert(User user) {
-        return userDao.insert(user);
-    }
-
     @Override
     public boolean update(User user) {
-        return userDao.update(user);
+        return false;
     }
 
-    /**
-     * 执行单条删除
-     * @param id int id
-     * @return boolean
-     */
     @Override
     public boolean delete(int id) {
-        return userDao.delete(id);
+        return false;
     }
 
-    /**
-     * 执行多条删除
-     * @param ids Integer[] ids
-     * @return boolean
-     */
     @Override
-    public boolean delete(Integer[] ids){
-        for (Integer id : ids) {
-            boolean delete = userDao.delete(id);
-            if (!delete) {
-                return false;
-            }
-        }
-        return true;
+    public boolean delete(Integer[] ids) {
+        return false;
     }
 
     @Override
@@ -86,14 +39,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> queryList(UserQuery userQuery,Page page) {
-        return userDao.selectList(userQuery,page);
-    }
-
-    @Override
     public Integer count() {
-        return userDao.count();
+        return null;
     }
-
-
 }

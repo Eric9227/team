@@ -7,17 +7,17 @@
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="../assets/images/favicon.ico" rel="icon">
+    <link href="/assets/images/favicon.ico" rel="icon">
     <title>用户登录-EasyWeb</title>
-    <link rel="stylesheet" href="../assets/libs/layui/css/layui.css"/>
-    <link rel="stylesheet" href="../assets/module/admin.css?v=318">
+    <link rel="stylesheet" href="/assets/libs/layui/css/layui.css"/>
+    <link rel="stylesheet" href="/assets/module/admin.css?v=318">
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
         body {
-            background-image: url("../assets/images/bg-login.jpg");
+            background-image: url("/assets/images/bg-login.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             min-height: 100vh;
@@ -182,30 +182,16 @@
                    lay-verType="tips" lay-verify="required" required/>
             <img class="login-captcha" alt=""/>
         </div>
-
-        <!--
-        <div class="layui-form-item">
-            <input type="checkbox" name="remember" title="记住密码" lay-skin="primary" checked>
-            <a href="reg.html" class="layui-link pull-right">注册账号</a>
-        </div>
-        -->
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>登录</button>
         </div>
-        <!--
-        <div class="layui-form-item login-oauth-group text-center">
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-qq" style="color:#3492ed;"></i></a>&emsp;
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat" style="color:#4daf29;"></i></a>&emsp;
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo" style="color:#CF1900;"></i></a>
-        </div>
-        -->
     </form>
 </div>
 <div class="login-copyright">copyright © 2020 easyweb.vip all rights reserved.</div>
 
 <!-- js部分 -->
-<script type="text/javascript" src="../assets/libs/layui/layui.js"></script>
-<script type="text/javascript" src="../assets/js/common.js?v=318"></script>
+<script type="text/javascript" src="/assets/layui/layui.js"></script>
+<script type="text/javascript" src="/assets/js/common.js?v=318"></script>
 <script>
     layui.use(['layer', 'form'], function () {
         var $ = layui.jquery;

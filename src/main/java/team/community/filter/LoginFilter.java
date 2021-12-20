@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class LoginFilter implements Filter {
 
-    private static final String[] urls ={"/index.html", "/login", "/captcha"};
+    private static final String[] urls ={"/index.html", "/loginPage", "/captcha"};
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -41,6 +41,7 @@ public class LoginFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
+
         System.out.println("未登录，已拦截");
         System.out.println("");
         response.sendRedirect("/loginPage");

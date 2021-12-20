@@ -14,6 +14,7 @@ public class LoginServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
     @Override
     void execute() {
+        System.out.println("LoginServlet");
         //判断验证码是否正确
         if (!CaptchaUtil.ver(request.getParameter("code"), request)) {
             CaptchaUtil.clear(request);

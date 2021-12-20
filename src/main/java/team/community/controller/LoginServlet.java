@@ -16,8 +16,7 @@ public class LoginServlet extends BaseServlet {
     void execute() {
         //判断验证码是否正确
         if (!CaptchaUtil.ver(request.getParameter("code"), request)) {
-            CaptchaUtil.clear(request);  // 清除session中的验证码
-//            return JsonResult.error("验证码不正确");
+            CaptchaUtil.clear(request);
             responseJSON(Resp.no("验证码不正确"));
             return;
         }

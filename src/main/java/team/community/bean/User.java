@@ -46,4 +46,9 @@ public class User {
      * 0为普通用户，1为管理员
      */
     private Boolean role;
+
+    /**
+     * VIP;0不为VIP
+     */
+    private Integer vip;
 }

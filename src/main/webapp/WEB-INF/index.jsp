@@ -1,4 +1,4 @@
-<%--
+<%@ page import="team.community.bean.User" %><%--
   Created by IntelliJ IDEA.
   User: Chunjie
   Date: 2021/12/20
@@ -7,16 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>七组的社区</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="fly,layui,前端社区11111">
-    <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
     <link rel="stylesheet" href="../assets/layui/css/layui.css">
     <link rel="stylesheet" href="../assets/css/global.css">
     <style>
@@ -35,6 +31,12 @@
         </a>
 
         <ul class="layui-nav fly-nav-user">
+            <%
+                User user = null;
+                user = (User)session.getAttribute("user");
+                if(user == null){
+            %>
+
 
             <!-- 未登入的状态 -->
             <li class="layui-nav-item">
@@ -42,18 +44,28 @@
             </li>
             <li class="layui-nav-item">
                 <a href="user/login.html">登入</a>
-            </li><!--
-      <li class="layui-nav-item">
-        <a href="user/reg.html">注册</a>
-      </li>-->
-
+            </li>
+              <li class="layui-nav-item">
+                <a href="user/reg.html">注册</a>
+              </li>
+            <%
+                }else{
+            %>
             <!-- 登入后的状态 -->
-            <!--
+
             <li class="layui-nav-item">
               <a class="fly-nav-avatar" href="javascript:;">
-                <cite class="layui-hide-xs">贤心</cite>
-                <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>
-                <i class="layui-badge fly-badge-vip layui-hide-xs">VIP3</i>
+                <cite class="layui-hide-xs"><%=user.getAccount()%></cite>
+            <%--    <i class="iconfont icon-renzheng layui-hide-xs" title="认证信息：layui 作者"></i>--%>
+
+                  <%
+                      if(user.getVip()>0){
+                  %>
+                <i class="layui-badge fly-badge-vip layui-hide-xs">VIP<%=user.getVip()%></i>
+                  <%
+                      }
+                  %>
+
                 <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg">
               </a>
               <dl class="layui-nav-child">
@@ -64,7 +76,10 @@
                 <dd><a href="/user/logout/" style="text-align: center;">退出</a></dd>
               </dl>
             </li>
-            -->
+            <%
+                }
+            %>
+
         </ul>
     </div>
 </div>
@@ -591,10 +606,7 @@
 
             </div>
         </div>
-        <div class="layui-col-md4">
-
-
-
+    </div>
 
             <script src="../assets/layui/layui.js"></script>
             <script>

@@ -1,15 +1,16 @@
 package team.community.dao.select;
 
 
+import team.community.bean.Message;
 import team.community.bean.User;
 import team.community.util.JdbcUtil;
 
 import java.util.List;
 
 public class UserSelect {
-    private JdbcUtil jdbcUtil = new JdbcUtil();
+    private static JdbcUtil jdbcUtil = new JdbcUtil();
 
-    public User getUserByAccount(String account) {
+    public static User getUserByAccount(String account) {
         //编写SQL
         String sql = "select * from user where account = ?";
         //执行SQL

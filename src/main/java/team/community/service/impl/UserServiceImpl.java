@@ -11,7 +11,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String account, String password) {
-        UserSelect userSelect = new UserSelect();
         //验证参数是否正确
         if (account == null || "".equals(account)) {
             return null;
@@ -20,7 +19,7 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         //调用数据访问层获取数据或修改数据
-        User user = userSelect.getUserByAccount(account);
+        User user = UserSelect.getUserByAccount(account);
 
         if (user == null) {
             System.out.println("账号不存在");

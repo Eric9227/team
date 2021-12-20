@@ -1,5 +1,6 @@
- 
- 
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,15 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="fly,layui,前端社区11111">
   <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
-  <link rel="stylesheet" href="./assets/layui/css/layui.css">
-  <link rel="stylesheet" href="./assets/css/global.css">
+  <link rel="stylesheet" href="../assets/layui/css/layui.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
 </head>
 <body>
 
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="/">
-      <img src="./assets/images/logo.png" alt="layui">
+      <img src="../assets/images/logo.png" alt="layui">
     </a>
     <!--<ul class="layui-nav fly-nav layui-hide-xs">
       <li class="layui-nav-item layui-this">
@@ -785,7 +786,7 @@
   </p>
 </div>
  
-<script src="./assets/layui/layui.js"></script>
+<script src="../assets/layui/layui.js"></script>
 <script>
 layui.cache.page = '';
 layui.cache.user = {

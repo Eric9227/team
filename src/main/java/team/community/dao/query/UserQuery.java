@@ -1,13 +1,12 @@
-package team.community.dao.select;
+package team.community.dao.query;
 
 
-import team.community.bean.Message;
 import team.community.bean.User;
 import team.community.util.JdbcUtil;
 
 import java.util.List;
 
-public class UserSelect {
+public class UserQuery {
     private static JdbcUtil jdbcUtil = new JdbcUtil();
 
     /**
@@ -25,5 +24,9 @@ public class UserSelect {
             return null;
         }
         return users.get(0);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(UserQuery.getUserByAccount("tx"));
     }
 }

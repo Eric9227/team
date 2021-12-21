@@ -9,9 +9,14 @@ import lombok.Data;
 @Data
 public class MessageBoard {
     /**
-     * ID
+     * 账号;发布人的账号
      */
-    private Integer id;
+    private String account;
+
+    /**
+     * 时间;作者发布的时间
+     */
+    private Date authorAddTime;
 
     /**
      * 留言;阅读者的留言

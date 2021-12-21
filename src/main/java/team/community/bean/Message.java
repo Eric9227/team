@@ -1,6 +1,8 @@
 package team.community.bean;
 
+import java.util.Date;
 import lombok.Data;
+import team.community.annotation.FieldName;
 
 /**
  * 信息表
@@ -8,13 +10,20 @@ import lombok.Data;
 @Data
 public class Message {
     /**
-     * ID
+     * 账号;发布人的账号
      */
-    private Integer id;
+    private String account;
+
+    /**
+     * 时间;发布的时间
+     */
+    @FieldName("add_time")
+    private Date addTime;
 
     /**
      * 专栏;所属的专栏
      */
+    @FieldName("special_column")
     private String specialColumn;
 
     /**
@@ -31,11 +40,6 @@ public class Message {
      * 悬赏数量;悬赏数量
      */
     private Integer reward;
-
-    /**
-     * 账号;发布人的账号
-     */
-    private String account;
 
     /**
      * 置顶;0代表不置顶，1代表置顶

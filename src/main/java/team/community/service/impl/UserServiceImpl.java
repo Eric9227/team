@@ -2,7 +2,7 @@ package team.community.service.impl;
 
 
 import team.community.bean.User;
-import team.community.dao.select.UserSelect;
+import team.community.dao.query.UserQuery;
 import team.community.service.UserService;
 import team.community.util.JdbcUtil;
 
@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         //调用数据访问层获取数据或修改数据
-        User user = UserSelect.getUserByAccount(account);
+        User user = UserQuery.getUserByAccount(account);
 
         if (user == null) {
             System.out.println("账号不存在");

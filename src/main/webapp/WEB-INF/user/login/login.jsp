@@ -58,7 +58,7 @@
         }
 
         .login-wrapper > .layui-form > .layui-form-item {
-            margin-bottom: 25px;
+            margin-bottom: 24px;
             position: relative;
         }
 
@@ -159,6 +159,11 @@
         .layui-link {
             color: #5FB878 !important;
         }
+        .layui-form-new{
+            position:absolute;
+            left: 150px;
+            top: 304px;
+        }
     </style>
 </head>
 <body>
@@ -180,10 +185,13 @@
             <i class="layui-icon layui-icon-auz"></i>
             <input id="code" class="layui-input" name="code" placeholder="请输入验证码" autocomplete="off"
                    lay-verType="tips" lay-verify="required" required/>
-            <img class="login-captcha" alt=""/>
+            <img class="login-captcha" alt="/">
         </div>
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>登录</button>
+        </div>
+        <div class="layui-form-new">
+            <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>注册</button>
         </div>
     </form>
 </div>

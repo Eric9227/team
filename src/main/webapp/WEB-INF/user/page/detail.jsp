@@ -7,10 +7,8 @@
   <meta charset="utf-8">
   <title>Fly Template v3.0，基于 layui 的极简社区页面模版</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="fly,layui,前端社区">
-  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
-  <link rel="stylesheet" href="../../res/layui/css/layui.css">
-  <link rel="stylesheet" href="../../res/css/global.css">
+  <link rel="stylesheet" href="/assets//layui/css/layui.css">
+  <link rel="stylesheet" href="/assets//css/global.css">
 </head>
 <body>
 
@@ -330,19 +328,7 @@
         -->
       </dl>
 
-      <div class="fly-panel">
-        <div class="fly-panel-title">
-          这里可作为广告区域
-        </div>
-        <div class="fly-panel-main">
-          <a href="http://layim.layui.com/?from=fly" target="_blank" class="fly-zanzhu" time-limit="2017.09.25-2099.01.01" style="background-color: #5FB878;">LayIM 3.0 - layui 旗舰之作</a>
-        </div>
-      </div>
 
-      <div class="fly-panel" style="padding: 20px 0; text-align: center;">
-        <img src="../../res/images/weixin.jpg" style="max-width: 100%;" alt="layui">
-        <p style="position: relative; color: #666;">微信扫码关注 layui 公众号</p>
-      </div>
 
     </div>
   </div>

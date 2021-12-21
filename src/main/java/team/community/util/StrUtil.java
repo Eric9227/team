@@ -5,6 +5,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * @author TAN00XU
+ */
 public class StrUtil {
     /**
      * 字符串首字母大写

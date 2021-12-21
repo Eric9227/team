@@ -4,6 +4,9 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
+/**
+ * @author TAN00XU
+ */
 @Data
 public class DetailsQuery {
 

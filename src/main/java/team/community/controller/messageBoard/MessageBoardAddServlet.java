@@ -7,6 +7,9 @@ import team.community.dao.add.MessageBoardAdd;
 
 import javax.servlet.annotation.WebServlet;
 
+/**
+ * @author TAN00XU
+ */
 @WebServlet("/user/messageBoardAdd")
 public class MessageBoardAddServlet extends BaseServlet {
     @Override

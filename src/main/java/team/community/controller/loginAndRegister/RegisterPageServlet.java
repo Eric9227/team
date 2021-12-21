@@ -6,6 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
 
+/**
+ * @author TAN00XU
+ */
 @WebServlet("/registerPage")
 public class RegisterPageServlet extends BaseServlet {
     @Override

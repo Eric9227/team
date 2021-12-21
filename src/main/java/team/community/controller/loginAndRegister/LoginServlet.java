@@ -10,6 +10,9 @@ import team.community.service.impl.UserServiceImpl;
 import javax.servlet.annotation.WebServlet;
 
 
+/**
+ * @author TAN00XU
+ */
 @WebServlet("/login")
 public class LoginServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();

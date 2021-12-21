@@ -6,6 +6,9 @@ import team.community.dao.add.UserAdd;
 
 import javax.servlet.annotation.WebServlet;
 
+/**
+ * @author TAN00XU
+ */
 @WebServlet("/user/userAdd")
 public class UserAddServlet extends BaseServlet {
     @Override

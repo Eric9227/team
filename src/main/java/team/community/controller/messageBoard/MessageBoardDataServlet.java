@@ -9,6 +9,9 @@ import team.community.response.Resp;
 import javax.servlet.annotation.WebServlet;
 import java.util.List;
 
+/**
+ * @author TAN00XU
+ */
 @WebServlet("/MessageBoardData.json")
 public class MessageBoardDataServlet extends BaseServlet {
     @Override

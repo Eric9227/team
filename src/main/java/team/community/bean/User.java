@@ -4,6 +4,7 @@ import lombok.Data;
 
 /**
  * 用户表
+ * @author TAN00XU
  */
 @Data
 public class User {

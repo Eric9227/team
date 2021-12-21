@@ -7,6 +7,7 @@ import team.community.annotation.FieldName;
 
 /**
  * 留言板
+ * @author TAN00XU
  */
 @Data
 public class MessageBoard {

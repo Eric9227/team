@@ -52,6 +52,22 @@
       <version>1.2.78</version>
     </dependency>
 
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.7.17</version>
+
+    </dependency>
+      <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version>
+      </dependency>
+
+
+
+
     <!--验证码-->
     <dependency>
       <groupId>com.github.whvcse</groupId>

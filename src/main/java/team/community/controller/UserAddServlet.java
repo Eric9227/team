@@ -3,6 +3,9 @@ package team.community.controller;
 import team.community.bean.User;
 import team.community.dao.add.UserAdd;
 
+import javax.servlet.annotation.WebServlet;
+
+@WebServlet("/user/userAdd")
 public class UserAddServlet extends BaseServlet{
     @Override
     void execute() {
@@ -13,7 +16,7 @@ public class UserAddServlet extends BaseServlet{
         if (isOk) {
             responseJSON("注册成功");
         }else {
-            responseJSON("注册成功");
+            responseJSON("注册失败");
         }
 
     }

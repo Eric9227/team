@@ -1,7 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="team.community.bean.User" %>
 <%@ page import="java.util.List" %>
-<%@ page import="team.community.bean.Message" %>
-<%@ page import="java.io.PrintWriter" %><%--
+<%@ page import="java.util.Map" %>
+<%--
   Created by IntelliJ IDEA.
   User: Chunjie
   Date: 2021/12/20
@@ -143,20 +144,19 @@
                     <%
                         List list = (List) request.getAttribute("messages");
                         for (int i = 0; i < list.size(); i++) {
-//                            Object obj = list.get(i);
-                            Message message = (Message) list.get(i);
-//                            Message message = (Message) obj;
-                    %>
+                            Map map = (Map)list.get(i);
+                            System.out.println(map.get("account"));
 
+                    %>
 
                     <li>
                         <a href="user/home.html" class="fly-avatar">
                             <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
-                                 alt="<%=message.toString() %>">
+                                 alt="<%=map.get("account")%>">
                         </a>
                         <h2>
                             <a class="layui-badge">公告</a>
-                            <a href="jie/detail.html"><%=message.toString()%></a>
+                            <a href="jie/detail.html"><%=map.get("title")%></a>
                         </h2>
                         <div class="fly-list-info">
                             <a href="user/home.html" link>
@@ -167,7 +167,7 @@
                             </a>
                             <span>?</span>
 
-                            <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> 60</span>
+                            <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> <%=map.get("reward")%></span>
                             <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
                 <i class="iconfont icon-pinglun1" title="回答"></i> 66
@@ -180,7 +180,6 @@
                             -->
                         </div>
                     </li>
-
                     <%
                         }
                     %>

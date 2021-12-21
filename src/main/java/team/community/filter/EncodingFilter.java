@@ -23,7 +23,7 @@ public class EncodingFilter implements Filter {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
 
-        System.out.println("执行编码过滤器");
+//        System.out.println("执行编码过滤器");
         filterChain.doFilter(servletRequest, servletResponse);
     }
 }

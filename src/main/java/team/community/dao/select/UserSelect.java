@@ -10,6 +10,11 @@ import java.util.List;
 public class UserSelect {
     private static JdbcUtil jdbcUtil = new JdbcUtil();
 
+    /**
+     * 根据用户名查询用户
+     * @param account 账号
+     * @return User对象
+     */
     public static User getUserByAccount(String account) {
         //编写SQL
         String sql = "select * from user where account = ?";

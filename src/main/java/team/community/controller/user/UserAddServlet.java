@@ -1,14 +1,15 @@
-package team.community.controller;
+package team.community.controller.user;
 
 import team.community.bean.User;
+import team.community.controller.BaseServlet;
 import team.community.dao.add.UserAdd;
 
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/user/userAdd")
-public class UserAddServlet extends BaseServlet{
+public class UserAddServlet extends BaseServlet {
     @Override
-    void execute() {
+    protected void execute() {
         User user = parseParameter(User.class);
         System.out.println("注册-前台取到的数据：" + user);
 

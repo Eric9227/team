@@ -1,4 +1,6 @@
-package team.community.controller;
+package team.community.controller.loginAndRegister;
+
+import team.community.controller.BaseServlet;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,7 +9,7 @@ import java.io.IOException;
 @WebServlet("/registerPage")
 public class RegisterPageServlet extends BaseServlet {
     @Override
-    void execute() {
+    protected void execute() {
         try {
             System.out.println("经过registerPage的servlet");
             request.getRequestDispatcher("/WEB-INF/user/login/register.jsp").forward(request,response);

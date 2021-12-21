@@ -1,7 +1,8 @@
-package team.community.controller;
+package team.community.controller.message;
 
 
 import team.community.bean.Message;
+import team.community.controller.BaseServlet;
 import team.community.dao.query.MessageQuery;
 import team.community.response.Resp;
 

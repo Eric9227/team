@@ -1,15 +1,16 @@
-package team.community.controller;
+package team.community.controller.messageBoard;
 
 
 import team.community.bean.MessageBoard;
+import team.community.controller.BaseServlet;
 import team.community.dao.add.MessageBoardAdd;
 
 import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/user/messageBoardAdd")
-public class MessageBoardAddServlet extends BaseServlet{
+public class MessageBoardAddServlet extends BaseServlet {
     @Override
-    void execute() {
+    protected void execute() {
         MessageBoard messageBoard = parseParameter(MessageBoard.class);
         System.out.println("文章-前台取到的数据：" + messageBoard);
 

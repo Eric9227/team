@@ -1,7 +1,8 @@
-package team.community.controller;
+package team.community.controller.loginAndRegister;
 
 import com.wf.captcha.utils.CaptchaUtil;
 import team.community.bean.User;
+import team.community.controller.BaseServlet;
 import team.community.response.Resp;
 import team.community.service.UserService;
 import team.community.service.impl.UserServiceImpl;
@@ -13,7 +14,7 @@ import javax.servlet.annotation.WebServlet;
 public class LoginServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
     @Override
-    void execute() {
+    protected void execute() {
         System.out.println("LoginServlet");
         //判断验证码是否正确
         if (!CaptchaUtil.ver(request.getParameter("code"), request)) {

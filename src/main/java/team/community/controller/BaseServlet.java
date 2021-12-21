@@ -45,7 +45,7 @@ public abstract class BaseServlet extends HttpServlet {
         execute();
     }
 
-    abstract void execute();
+    protected abstract void execute();
 
     /**
      * 获取页面提供的数据

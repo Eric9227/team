@@ -1,6 +1,7 @@
-package team.community.controller;
+package team.community.controller.messageBoard;
 
 import team.community.bean.MessageBoard;
+import team.community.controller.BaseServlet;
 import team.community.dao.query.MessageBoardQuery;
 import team.community.queryData.DetailsQuery;
 import team.community.response.Resp;
@@ -9,9 +10,9 @@ import javax.servlet.annotation.WebServlet;
 import java.util.List;
 
 @WebServlet("/MessageBoardData.json")
-public class MessageBoardDataServlet extends BaseServlet{
+public class MessageBoardDataServlet extends BaseServlet {
     @Override
-    void execute() {
+    protected void execute() {
         DetailsQuery detailsQuery = parseParameter(DetailsQuery.class);
         System.out.println("前台取到的数据：" + detailsQuery);
 

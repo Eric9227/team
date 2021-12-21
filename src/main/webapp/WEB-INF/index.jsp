@@ -2,13 +2,9 @@
 <%@ page import="team.community.bean.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Chunjie
-  Date: 2021/12/20
-  Time: 15:14
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="team.community.dao.query.UserQuery" %>
+<%@ page import="java.sql.SQLOutput" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -145,33 +141,34 @@
                         List list = (List) request.getAttribute("messages");
                         for (int i = 0; i < list.size(); i++) {
                             Map map = (Map)list.get(i);
-                            System.out.println(map.get("account"));
-
+                            User author = UserQuery.getUserByAccount((String) map.get("account"));
                     %>
 
                     <li>
-                        <a href="user/home.html" class="fly-avatar">
-                            <img src="https://tva1.sinaimg.cn/crop.0.0.118.118.180/5db11ff4gw1e77d3nqrv8j203b03cweg.jpg"
+                        <a href="/detailPage" class="fly-avatar">
+                            <img src="<%=author.getAvatar()%>"
                                  alt="<%=map.get("account")%>">
                         </a>
                         <h2>
-                            <a class="layui-badge">公告</a>
-                            <a href="jie/detail.html"><%=map.get("title")%></a>
+                            <a class="layui-badge">标题</a>
+                            <a href="/detailPage"><%=map.get("title")%></a>
                         </h2>
                         <div class="fly-list-info">
-                            <a href="user/home.html" link>
-                                <cite>?</cite>
-                                <!--
-                                <i class="layui-badge fly-badge-vip">VIP3</i>
-                                -->
+                            <a href="/detailPage" link>
+                                <cite><%=map.get("account")%></cite>
+                                <%
+                                    if(author.getVip()>0){
+                                %>
+                                <i class="layui-badge fly-badge-vip">VIP<%=author.getVip()%></i>
+                                <%
+                                    }
+                                %>
                             </a>
-                            <span>?</span>
+                            <span><%=map.get("addTime")%></span>
 
                             <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> <%=map.get("reward")%></span>
-                            <!--<span class="layui-badge fly-badge-accept layui-hide-xs">已结</span>-->
                             <span class="fly-list-nums">
-                <i class="iconfont icon-pinglun1" title="回答"></i> 66
-              </span>
+                <i class="iconfont icon-pinglun1" title="回答"></i> 66</span>
                         </div>
                         <div class="fly-list-badge">
                             <!--
@@ -184,17 +181,14 @@
                         }
                     %>
 
-
-
-
-
-
+                   <%--
                     <div style="text-align: center">
                         <div class="laypage-main">
                             <a href="jie/index.html" class="laypage-next">更多求解</a>
                         </div>
 
                     </div>
+                    --%>
                 </ul>
             </div>
         </div>
@@ -218,8 +212,11 @@
         }).use('fly');
     </script>
 
+
     <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
     document.write(unescape("%3Cspan id='cnzz_stat_icon_30088308'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088308' type='text/javascript'%3E%3C/script%3E"));</script>
+
+
 </div>
 </body>
 </html>

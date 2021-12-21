@@ -20,6 +20,5 @@ public class IndexServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("经过了index的Servlet");
         req.getRequestDispatcher("/MessageData.json").forward(req, resp);
-
     }
 }

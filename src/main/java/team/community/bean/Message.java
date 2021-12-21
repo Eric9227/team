@@ -1,5 +1,6 @@
 package team.community.bean;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Data;
 import team.community.annotation.FieldName;
@@ -18,7 +19,7 @@ public class Message {
      * 时间;发布的时间
      */
     @FieldName("add_time")
-    private Date addTime;
+    private LocalDateTime addTime; // LocalDate\LocalTime
 
     /**
      * 专栏;所属的专栏

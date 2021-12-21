@@ -4,38 +4,23 @@
   <title>注册</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="keywords" content="fly,layui,前端社区">
-  <link rel="stylesheet" href="layui.css">
-  <link rel="stylesheet" href="global.css">
-<link id="layuicss-layer" rel="stylesheet" href="layer.css" media="all"></head>
+  <link rel="stylesheet" href="../../../assets/ZHUCE/ZHUC_files/layui.css">
+  <link rel="stylesheet" href="../../../assets/ZHUCE/ZHUC_files/global.css">
+<link id="layuicss-layer" rel="stylesheet" href="../../../assets/ZHUCE/ZHUC_files/layer.css" media="all"></head>
 <body>
 
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="file:///C:/">
-      <img src="logo.png" alt="layui">
+      <img src="../../../assets/ZHUCE/ZHUC_files/logo.png" alt="layui">
     </a>
     <ul class="layui-nav fly-nav layui-hide-xs">
-<%--      <li class="layui-nav-item layui-this">--%>
-<%--        <a href="file:///C:/"><i class="iconfont icon-jiaoliu"></i>交流</a>--%>
-<%--      </li>--%>
-<%--      <li class="layui-nav-item">--%>
-<%--        <a href="file:///C:/Users/yangchunjie/AppData/Local/Temp/360zip$Temp/360$6/fly-3.0/html/case/case.html"><i class="iconfont icon-iconmingxinganli"></i>案例</a>--%>
-<%--      </li>--%>
-<%--      <li class="layui-nav-item">--%>
-<%--        <a href="http://www.layui.com/" target="_blank"><i class="iconfont icon-ui"></i>框架</a>--%>
-<%--      </li>--%>
     <span class="layui-nav-bar" style="left: 56.5px; top: 55px; width: 0px; opacity: 0;"></span></ul>
     
     <ul class="layui-nav fly-nav-user">
       <li class="layui-nav-item">
         <a href="file:///C:/Users/yangchunjie/AppData/Local/Temp/360zip$Temp/360$6/fly-3.0/html/user/user/reg.html">登入</a>
       </li>
-<%--      <li class="layui-nav-item layui-hide-xs">--%>
-<%--        <a href="file:///C:/app/qq/" onclick="layer.msg(&#39;正在通过QQ登入&#39;, {icon:16, shade: 0.1, time:0})" title="QQ登入" class="iconfont icon-qq"></a>--%>
-<%--      </li>--%>
-<%--      <li class="layui-nav-item layui-hide-xs">--%>
-<%--        <a href="file:///C:/app/weibo/" onclick="layer.msg(&#39;正在通过微博登入&#39;, {icon:16, shade: 0.1, time:0})" title="微博登入" class="iconfont icon-weibo"></a>--%>
-<%--      </li>--%>
     <span class="layui-nav-bar" style="left: 27px; top: 55px; width: 0px; opacity: 0;"></span></ul>
   </div>
 </div>
@@ -105,7 +90,7 @@
 
 
 
-<script src="layui.js.下载"></script>
+<script src="../../../assets/ZHUCE/ZHUC_files/layui.js.下载"></script>
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

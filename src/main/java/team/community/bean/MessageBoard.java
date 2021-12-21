@@ -1,7 +1,9 @@
 package team.community.bean;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import lombok.Data;
+import team.community.annotation.FieldName;
 
 /**
  * 留言板
@@ -16,30 +18,34 @@ public class MessageBoard {
     /**
      * 时间;作者发布的时间
      */
-    private Date authorAddTime;
+    @FieldName("author_add_time")
+    private LocalDateTime authorAddTime;
 
     /**
      * 留言;阅读者的留言
      */
+    @FieldName("leave_word")
     private String leaveWord;
 
     /**
      * 留言者的账号;留言者的账号
      */
+    @FieldName("leave_word_account")
     private String leaveWordAccount;
 
     /**
      * 留言的时间;留言的时间
      */
-    private Date addTime;
+    @FieldName("add_time")
+    private LocalDateTime addTime;
 
     /**
      * 置顶;0代表不置顶，1代表置顶
      */
-    private Integer top;
+    private Boolean top;
 
     /**
      * 加精;0代表不加精，1代表加精
      */
-    private Integer digest;
+    private Boolean digest;
 }

@@ -8,26 +8,14 @@ import team.community.response.Resp;
 import javax.servlet.annotation.WebServlet;
 import java.util.List;
 
-@WebServlet("/user/data.json")
+/**
+ * @author TAN00XU
+ */
+@WebServlet("/MessageData.json")
 public class MessageDataServlet extends BaseServlet {
 
     @Override
     protected void execute() {
-/*
-        //接收搜索条件 UserQuery
-        UserQuery userQuery = parseParameter(UserQuery.class);
-
-        //接收分页的数据
-        Page page =parseParameter(Page.class);
-
-        Integer count = userService.count();
-
-        //查询数据 从业务层获取数据
-        List<User> list = userService.queryList(userQuery,page);
-        System.out.println("查到的data：" +list);
-
-        //作出响应 将业务层返回的数据，封装成JSON的字符
-        responseJSON(Resp.ok(0, "查询成功", list, count));*/
 
         List<Message> messages = MessageQuery.getAllMessage();
         System.out.println("查到的信息：" + messages);

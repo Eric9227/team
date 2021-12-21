@@ -5,6 +5,9 @@ import team.community.util.JdbcUtil;
 
 import java.util.List;
 
+/**
+ * @author TAN00XU
+ */
 public class MessageQuery {
     private static JdbcUtil jdbcUtil = new JdbcUtil();
 

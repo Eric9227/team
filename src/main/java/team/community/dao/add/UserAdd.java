@@ -1,25 +1,26 @@
 package team.community.dao.add;
 
+
 import team.community.bean.User;
-import team.community.controller.BaseServlet;
-import team.community.response.Resp;
 import team.community.util.JdbcUtil;
 
-import javax.servlet.annotation.WebServlet;
-@WebServlet("/user/add")
-public class UserAdd extends BaseServlet {
-    JdbcUtil jdbcUtil = new JdbcUtil();
+public class UserAdd {
 
-        @Override
-        protected void execute() {
-            // 接收参数
-            User user = parseParameter(User.class);
-            //写入数据库
-            String sql = "insert into user (getAccount,password)values(?,?)";
+    private static JdbcUtil jdbcUtil = new JdbcUtil();
 
-            jdbcUtil.executeQuery(sql,User.class,user.getAccount(),user.getPassword());
+    public static Boolean insert(User user){
+        String sql = "insert into user(account, username, password) value(?,?,?)";
 
+        return jdbcUtil.executeSql(sql, user.getAccount(), user.getUsername(), user.getPassword());
+    }
 
-        }
+    public static void main(String[] args) {
+        User user = new User();
+        user.setAccount("clq");
+        user.setUsername("clqclqclq");
+        user.setPassword("123456");
+        UserAdd.insert(user);
+    }
+
 
 }

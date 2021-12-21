@@ -236,7 +236,8 @@ public class JdbcUtil {
                             "set" + StrUtil.getMethodName(field.getName()), field.getType());
                     //调用set方法
                     setMethod.invoke(object, filedValue);
-                    System.out.println(object);
+//                    System.out.println(object);
+
                 }
 //                SimpleDateFormat time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

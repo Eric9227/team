@@ -145,16 +145,16 @@
                     %>
 
                     <li>
-                        <a href="/detailPage" class="fly-avatar">
+                        <a href="/detailPage?account=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" class="fly-avatar">
                             <img src="<%=author.getAvatar()%>"
                                  alt="<%=map.get("account")%>">
                         </a>
                         <h2>
                             <a class="layui-badge">标题</a>
-                            <a href="/detailPage"><%=map.get("title")%></a>
+                            <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>"><%=map.get("title")%></a>
                         </h2>
                         <div class="fly-list-info">
-                            <a href="/detailPage" link>
+                            <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" link>
                                 <cite><%=map.get("account")%></cite>
                                 <%
                                     if(author.getVip()>0){

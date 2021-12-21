@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 public class DetailPageServlet extends BaseServlet {
     @Override
     protected void execute() {
-        forward("user/page/detail.jsp");
+        String author = request.getParameter("author");
+        String addTime = request.getParameter("addTime");
+
+        forward("user/page/detail.jsp?account="+author +"&addTime="+addTime);
     }
 }

@@ -36,8 +36,8 @@ public class MessageBoard {
     /**
      * 留言的时间;留言的时间
      */
-    @FieldName("add_time")
-    private LocalDateTime addTime;
+    @FieldName("leave_add_time")
+    private LocalDateTime leaveAddTime;
 
     /**
      * 置顶;0代表不置顶，1代表置顶

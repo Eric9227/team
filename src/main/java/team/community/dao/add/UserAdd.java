@@ -4,6 +4,9 @@ package team.community.dao.add;
 import team.community.bean.User;
 import team.community.util.JdbcUtil;
 
+/**
+ * @author TAN00XU
+ */
 public class UserAdd {
 
     private static JdbcUtil jdbcUtil = new JdbcUtil();

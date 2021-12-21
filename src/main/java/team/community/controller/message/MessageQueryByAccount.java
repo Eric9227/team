@@ -22,4 +22,5 @@ public class MessageQueryByAccount extends BaseServlet {
         List<Message> messages = MessageByAccount.getMessageByAccount(user.getAccount());
         responseJSON(messages);
     }
+
 }

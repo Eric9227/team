@@ -1,5 +1,6 @@
 package team.community.controller;
 
+import cn.hutool.core.bean.BeanUtil;
 import com.alibaba.fastjson.JSONObject;
 import team.community.util.StrUtil;
 
@@ -13,6 +14,11 @@ import java.io.PrintWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 这个类是所有的servlet类的基类
@@ -93,6 +99,65 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
+    protected List<Map> test(List objectList, String... fieldName){
+        List<Map> mapList = new ArrayList<>(objectList.size());
+        // 将列表中对象的时间字段(具体是哪个字段)转换为字符串
+        for (Object obj : objectList) {
+            Class<?> objClass = obj.getClass();
+
+            Map<String, Object> map = BeanUtil.beanToMap(obj);
+
+            for (String field : fieldName) {
+                try {
+                    Method method = objClass.getDeclaredMethod("get" + StrUtil.getMethodName(field));
+
+                    LocalDateTime dateTime = (LocalDateTime)method.invoke(obj);
+                    String result = dateTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                    map.put(field,result);
+                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            //
+            mapList.add(map);
+
+        }
+        return mapList;
+    }
+
+
+/*
+
+    protected List<Map> responseObject(Object obj){
+        Map<String, Object> map = BeanUtil.beanToMap(obj);
+        // 处理日期类型
+        Class<?> aClass = obj.getClass();
+        // 获取当前类的所有字段
+        for (Field field : aClass.getDeclaredFields()) {
+            // 找到日期类型字段
+            if(field.getType() == LocalDateTime.class){
+                try {
+                    // 获取该字段的get方法
+                    Method method = aClass.getDeclaredMethod(StrUtil.getMethodName("get" + field.getName()));
+                    // 调用get方法获取到数据，并且强转成日期类型对线 日期类型 LocalDateTime
+                    LocalDateTime value = (LocalDateTime)method.invoke(obj);
+                    // 将日期对象格式化为字符串
+                    String format = value.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                    // 将格式化的字符串覆盖到原字段上
+                    map.put(field.getName() ,format);
+                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return map;
+
+    }
+*/
+
+
+
     private void initObject(HttpServletRequest request, HttpServletResponse response){
         this.request = request;
         this.response = response;
@@ -107,6 +172,7 @@ public abstract class BaseServlet extends HttpServlet {
      */
     protected void responseJSON(Object obj){
         response.setContentType("application/json");
+
         try {
             PrintWriter writer = response.getWriter();
 

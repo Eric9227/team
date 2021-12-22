@@ -3,6 +3,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="team.community.bean.MessageBoard" %>
 <%@ page import="team.community.dao.query.UserQuery" %>
+<%@ page import="team.community.dao.query.CountMessageBoard" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
@@ -119,10 +120,15 @@
         <h1><%=thisMessage.get("title")%></h1>
         <div class="fly-detail-info">
 
-          <a href="/MessageDeleteServlet?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>"><span class="layui-badge layui-bg-black">删除</span></a>
+          <a href="/MessageDeleteServlet?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>">
+            <span class="layui-badge layui-bg-black">删除</span>
+          </a>
 
+          <%
+            int count = CountMessageBoard.getCountMessageBoard(request.getParameter("author"),request.getParameter("addTime"));
+          %>
           <span class="fly-list-nums">
-            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> 66</a>
+            <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> <%=count%></a>
           </span>
         </div>
         <div class="detail-about">

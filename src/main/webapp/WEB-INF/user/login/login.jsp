@@ -172,7 +172,7 @@
         </div>
         <div class="layui-form-item layui-input-icon-group">
             <i class="layui-icon layui-icon-password"></i>
-            <input class="layui-input" name="password" placeholder="请输入登录密码" value="123456" type="password"
+            <input class="layui-input" name="password" placeholder="请输入登录密码" value="123123" type="password"
                    lay-verType="tips" lay-verify="required" required/>
         </div>
 

@@ -15,7 +15,7 @@ public class DetailMessage {
      * @return
      */
     public static List<Message> getDetailMessage(String account, LocalDateTime addTime) {
-        String sql = "select * from message where account ? and add_time = ?";
+        String sql = "select * from message where account = ? and add_time = ?";
         List<Message> messages = jdbcUtil.executeQuery(sql, Message.class, account, addTime);
         return messages;
     }

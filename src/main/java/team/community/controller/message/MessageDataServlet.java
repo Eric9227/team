@@ -7,6 +7,7 @@ import team.community.bean.Message;
 import team.community.controller.BaseServlet;
 import team.community.dao.query.MessageQuery;
 import team.community.response.Resp;
+import team.community.util.JdbcUtil;
 
 import javax.servlet.annotation.WebServlet;
 import java.time.LocalDateTime;
@@ -20,6 +21,7 @@ import java.util.Map;
  */
 @WebServlet("/MessageData.json")
 public class MessageDataServlet extends BaseServlet {
+    JdbcUtil jdbcUtil = new JdbcUtil();
 
     @SneakyThrows
     @Override
@@ -50,6 +52,7 @@ public class MessageDataServlet extends BaseServlet {
 
         //响应数据
         request.setAttribute("messages",mapList);
+
         // 请求转发
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request,response);
     }

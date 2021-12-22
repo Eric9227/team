@@ -1,5 +1,6 @@
 package team.community.util;
 
+import lombok.SneakyThrows;
 import team.community.annotation.FieldName;
 
 import java.io.IOException;
@@ -8,6 +9,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -276,7 +279,6 @@ public class JdbcUtil {
 
     public int executeCount(String sql){
         createStatement();
-
         try {
             resultSet = statement.executeQuery(sql);
 
@@ -289,5 +291,35 @@ public class JdbcUtil {
         }
         return 0;
     }
+
+
+    public int countMessageBoard( String account, LocalDateTime addTime) throws SQLException {
+        String sql = "select count(*) from message_board where account = ? and author_add_time = ?";
+        createPreparedStatement(sql);
+        preparedStatement.setString(1,account);
+        preparedStatement.setTimestamp(2, Timestamp.valueOf(addTime));
+
+        System.out.println("编译后的preparedStatement通道sql语法"+preparedStatement);
+
+        resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+        return 0;
+    }
+    public int countMyMessage( String account) throws SQLException {
+        String sql = "select count(*) from message where account = ?";
+        createPreparedStatement(sql);
+        preparedStatement.setString(1,account);
+
+        System.out.println("编译后的preparedStatement通道sql语法"+preparedStatement);
+
+        resultSet = preparedStatement.executeQuery();
+        if(resultSet.next()){
+            return resultSet.getInt(1);
+        }
+        return 0;
+    }
+
 
 }

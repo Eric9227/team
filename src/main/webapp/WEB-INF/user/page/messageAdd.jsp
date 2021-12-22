@@ -7,8 +7,6 @@
   <meta charset="utf-8">
   <title>发布文章</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="fly,layui,前端社区">
-  <meta name="description" content="Fly社区是模块化前端UI框架Layui的官网社区，致力于为web开发提供强劲动力">
   <link rel="stylesheet" href="../assets/layui/css/layui.css">
   <link rel="stylesheet" href="../assets/css/global.css">
 </head>
@@ -61,7 +59,7 @@
           <img src="<%=user.getAvatar()%>">
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
+          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
           <dd><a href="/myMessage"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>用户中心</a></dd>
 
           <hr style="margin: 5px 0;">
@@ -138,7 +136,6 @@
 
 <script src="./assets/layui/layui.js"></script>
 <script>
-
 layui.config({
   version: "3.0.0"
   ,base: './assets/mods/'
@@ -146,6 +143,8 @@ layui.config({
   fly: 'index'
 }).use('fly');
 </script>
+
+
 
 </body>
 </html>

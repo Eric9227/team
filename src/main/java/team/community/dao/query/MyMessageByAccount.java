@@ -10,7 +10,7 @@ public class MyMessageByAccount {
 
     /**
      * 根据账号查询发布的文章
-     * @param account
+     * @param account 账号
      * @return
      */
     public static List<Message> getMessageByAccount(String account) {

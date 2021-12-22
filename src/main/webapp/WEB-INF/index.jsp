@@ -4,6 +4,7 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="team.community.dao.query.UserQuery" %>
 <%@ page import="java.sql.SQLOutput" %>
+<%@ page import="team.community.dao.query.CountMessageBoard" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -124,12 +125,13 @@
                         for (int i = 0; i < list.size(); i++) {
                             Map map = (Map)list.get(i);
                             User author = UserQuery.getUserByAccount((String) map.get("account"));
+                            int count =CountMessageBoard.getCountMessageBoard(author.getAccount(),(String) map.get("addTime"));
                     %>
 
                     <li>
                         <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" class="fly-avatar">
                             <img src="<%=author.getAvatar()%>"
-                                 alt="<%=map.get("account")%>">
+                                 alt="<%=author.getUsername()%>">
                         </a>
                         <h2>
                             <a class="layui-badge">标题</a>
@@ -137,7 +139,7 @@
                         </h2>
                         <div class="fly-list-info">
                             <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" link>
-                                <cite><%=map.get("account")%></cite>
+                                <cite><%=author.getUsername()%></cite>
                                 <%
                                     if(author.getVip()>0){
                                 %>
@@ -150,7 +152,7 @@
 
                             <span class="fly-list-kiss layui-hide-xs" title="悬赏飞吻"><i class="iconfont icon-kiss"></i> <%=map.get("reward")%></span>
                             <span class="fly-list-nums">
-                <i class="iconfont icon-pinglun1" title="回答"></i> 66</span>
+                <i class="iconfont icon-pinglun1" title="回答"></i> <%=count%></span>
                         </div>
                         <div class="fly-list-badge">
                             <!--

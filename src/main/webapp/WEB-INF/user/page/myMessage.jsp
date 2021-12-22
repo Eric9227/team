@@ -1,6 +1,7 @@
 <%@ page import="team.community.bean.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
+<%@ page import="team.community.dao.query.CountMyMessage" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -107,7 +108,10 @@
 
     <div class="layui-tab layui-tab-brief" lay-filter="user">
       <ul class="layui-tab-title" id="LAY_mine">
-        <li data-type="mine-jie" lay-id="index" class="layui-this">我发的帖（<span>89</span>）</li>
+        <%
+          int count =  CountMyMessage.getCountMyMessage(user.getAccount());
+        %>
+        <li data-type="mine-jie" lay-id="index" class="layui-this">我发的帖（<span><%=count%></span>）</li>
       </ul>
       <div class="layui-tab-content" style="padding: 20px 0;">
         <div class="layui-tab-item layui-show">
@@ -151,6 +155,15 @@
 </div>
 
 <script src="/assets/layui/layui.js"></script>
+<script type="text/javascript">
+  function toLoginOut(){
+    var result = confirm("确定要退出吗？");
+    if(result){
+      location.href="/toLoginOut";
+    }
+  }
+</script>
+
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

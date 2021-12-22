@@ -161,17 +161,15 @@
           <legend>回帖</legend>
         </fieldset>
 
-
-
+        <%--历史回帖--%>
         <ul class="jieda" id="jieda" >
+
           <%
             List list = (List) request.getAttribute("messageBoards");
-
             for (int i = 0; i < list.size(); i++) {
               Map messageBoard = (Map)list.get(i);
               User leaveUser = UserQuery.getUserByAccount((String) messageBoard.get("leaveWordAccount"));
           %>
-
           <li data-id="111" class="jieda-daan">
             <a name="item-1111111111"></a>
             <div class="detail-about detail-about-reply">
@@ -203,18 +201,22 @@
               <div class="detail-hits">
                 <span><%=messageBoard.get("leaveAddTime")%></span>
               </div>
-
-<%--              <i class="iconfont icon-caina" title="最佳答案"></i>--%>
             </div>
+
             <div class="detail-body jieda-body photos">
               <p><%=messageBoard.get("leaveWord")%></p>
             </div>
             <div class="jieda-reply">
-
+              <span class="jieda-zan" type="zan">
+              </span>
+              <span type="reply">
+              </span>
               <div class="jieda-admin">
                 <a href="/messageBoardDelete?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>&leaveWordAccount=<%=leaveUser.getAccount()%>&leaveAddTime=<%=messageBoard.get("leaveAddTime")%>">
-                  <span>删除</span></a>
+                  <span>删除</span>
+                </a>
               </div>
+
             </div>
           </li>
           <%

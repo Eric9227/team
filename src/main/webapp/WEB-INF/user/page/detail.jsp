@@ -118,7 +118,7 @@
         <h1><%=thisMessage.get("title")%></h1>
         <div class="fly-detail-info">
 
-          <a href="/DeleteServlet?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>"><span class="layui-badge layui-bg-black">删除</span></a>
+          <a href="/MessageDeleteServlet?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>"><span class="layui-badge layui-bg-black">删除</span></a>
 
           <span class="fly-list-nums">
             <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> 66</a>
@@ -163,8 +163,8 @@
         <%
           List list = (List) request.getAttribute("messageBoards");
           for (int i = 0; i < list.size(); i++) {
-            MessageBoard messageBoard = (MessageBoard) list.get(i);
-            User leaveUser = UserQuery.getUserByAccount(messageBoard.getLeaveWordAccount());
+            Map messageBoard = (Map)list.get(i);
+            User leaveUser = UserQuery.getUserByAccount((String) messageBoard.get("leaveWordAccount"));
         %>
 
         <ul class="jieda" id="jieda" >
@@ -197,19 +197,19 @@
               </div>
 
               <div class="detail-hits">
-                <span><%=messageBoard.getLeaveAddTime()%></span>
+                <span><%=messageBoard.get("leaveAddTime")%></span>
               </div>
 
 <%--              <i class="iconfont icon-caina" title="最佳答案"></i>--%>
             </div>
             <div class="detail-body jieda-body photos">
-              <p><%=messageBoard.getLeaveWord()%></p>
+              <p><%=messageBoard.get("leaveWord")%></p>
             </div>
             <div class="jieda-reply">
 
               <div class="jieda-admin">
-                <span type="del">删除</span>
-                <!-- <span class="jieda-accept" type="accept">采纳</span> -->
+                <a href="/messageBoardDelete?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>&leaveWordAccount=<%=leaveUser.getAccount()%>&leaveAddTime=<%=messageBoard.get("leaveAddTime")%>">
+                  <span>删除</span></a>
               </div>
             </div>
           </li>
@@ -239,7 +239,7 @@
             </div>
             <div class="layui-form-item">
               <input type="hidden" name="jid" value="123">
-              <button class="layui-btn" lay-filter="*" lay-submit>提交回复</button>
+              <button type="submit" lay-submit>提交回复</button>
             </div>
           </form>
         </div>

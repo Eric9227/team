@@ -43,7 +43,9 @@ public class DetailPageServlet extends BaseServlet {
 
         //当前文章的留言信息
         List<MessageBoard> messageBoards = MessageBoardQuery.getMessageBoard(author, ldt);
-        request.setAttribute("messageBoards",messageBoards);
+        //处理时间字段
+        List<Map> mapList = parseTime(messageBoards, "authorAddTime","leaveAddTime");
+        request.setAttribute("messageBoards",mapList);
 
 
         forward("user/page/detail.jsp");

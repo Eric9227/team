@@ -13,6 +13,12 @@ public class MessageDelete {
 
     private static JdbcUtil jdbcUtil = new JdbcUtil();
 
+    /**
+     * 文章删除
+     * @param account 作者账号
+     * @param addTime 文章发布时间
+     * @return Boolean
+     */
     public static Boolean delete(String account, LocalDateTime addTime){
         String sql = "delete from message where account = ? and add_time =?";
 

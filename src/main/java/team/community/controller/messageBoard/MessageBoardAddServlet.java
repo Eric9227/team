@@ -2,6 +2,7 @@ package team.community.controller.messageBoard;
 
 
 import cn.hutool.core.bean.BeanUtil;
+import lombok.SneakyThrows;
 import team.community.bean.Message;
 import team.community.bean.MessageBoard;
 import team.community.bean.User;
@@ -12,6 +13,7 @@ import team.community.dao.query.ThisMessageQuery;
 import team.community.dao.query.UserQuery;
 
 import javax.servlet.annotation.WebServlet;
+import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -22,18 +24,10 @@ import java.util.Map;
  */
 @WebServlet("/user/messageBoardAdd")
 public class MessageBoardAddServlet extends BaseServlet {
+    @SneakyThrows
     @Override
     protected void execute() {
         System.out.println("经过了messageBoardAdd的servlet");
-
-
-        System.out.println("作者："+request.getParameter("author"));
-        System.out.println("发布时间："+request.getParameter("authorAddTime"));
-        System.out.println("留言："+request.getParameter("leaveWord"));
-
-        System.out.println("留言者："+request.getParameter("leaveWordAccount"));
-
-
 
         MessageBoard messageBoard = new MessageBoard();
 
@@ -45,7 +39,6 @@ public class MessageBoardAddServlet extends BaseServlet {
         String authorAddTime = request.getParameter("authorAddTime");
         DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         LocalDateTime ldt = LocalDateTime.parse(authorAddTime,df);
-        System.out.println("处理后的时间："+ldt);
         messageBoard.setAuthorAddTime(ldt);
 
 
@@ -53,14 +46,25 @@ public class MessageBoardAddServlet extends BaseServlet {
 
         messageBoard.setLeaveWordAccount(request.getParameter("leaveWordAccount"));
 
-        System.out.println("留言-前台取到的数据：" + messageBoard);
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        PrintWriter writer = response.getWriter();
 
-        /*Boolean isOk = */MessageBoardAdd.insert(messageBoard);
-        /*if (isOk) {
-            responseJSON("留言成功");
+        if(MessageBoardAdd.insert(messageBoard)){
+            writer.println("""
+                    <script>
+                    alert("发布成功")
+                    """);
+            writer.println("location.href='/detailPage?author="+author+"&addTime="+addTime+"'");
+            writer.println("</script>");
         }else {
-            responseJSON("留言失败");
-        }*/
+            writer.println("""
+                    <script>
+                    alert("发布失败")
+                    """);
+            writer.println("location.href='/detailPage?author="+author+"&addTime="+addTime+"'");
+            writer.println("</script>");
+        }
 
 
         //当前文章的信息
@@ -80,10 +84,13 @@ public class MessageBoardAddServlet extends BaseServlet {
 
         //当前文章的留言信息
         List<MessageBoard> messageBoards = MessageBoardQuery.getMessageBoard(author, ldt);
-        request.setAttribute("messageBoards",messageBoards);
+        //处理时间字段
+        List<Map> mapList = parseTime(messageBoards, "authorAddTime","leaveAddTime");
+        request.setAttribute("messageBoards",mapList);
 
 
-        forward("user/page/detail.jsp");
+//        forward("user/page/detail.jsp");
+//        request.getRequestDispatcher("/WEB-INF/user/page/detail.jsp").forward(request,response);
 
 
     }

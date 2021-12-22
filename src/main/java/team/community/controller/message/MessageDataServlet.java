@@ -45,7 +45,7 @@ public class MessageDataServlet extends BaseServlet {
 
             mapLimap.add(beanToMap);
         }*/
-        List<Map> mapList = test(messages, "addTime");
+        List<Map> mapList = parseTime(messages, "addTime");
         System.out.println("查到的信息：" + mapList);
 
         //响应数据

@@ -55,7 +55,7 @@
 
             <li class="layui-nav-item">
                 <a class="fly-nav-avatar" href="javascript:;">
-                    <cite class="layui-hide-xs"><%=user.getAccount()%>
+                    <cite class="layui-hide-xs"><%=user.getUsername()%>
                     </cite>
 
                     <%

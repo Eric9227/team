@@ -99,7 +99,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
 
-    protected List<Map> test(List objectList, String... fieldName){
+    protected List<Map> parseTime(List objectList, String... fieldName){
         List<Map> mapList = new ArrayList<>(objectList.size());
         // 将列表中对象的时间字段(具体是哪个字段)转换为字符串
         for (Object obj : objectList) {

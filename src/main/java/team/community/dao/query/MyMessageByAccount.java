@@ -5,7 +5,7 @@ import team.community.util.JdbcUtil;
 
 import java.util.List;
 
-public class MessageByAccount {
+public class MyMessageByAccount {
     private static JdbcUtil jdbcUtil = new JdbcUtil();
 
     /**

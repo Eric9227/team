@@ -111,7 +111,6 @@
 </div>
 
 <div class="layui-container">
-  <div class="layui-row layui-col-space15">
     <div class="layui-col-md8 content detail">
       <div class="fly-panel detail-box">
         <h1>Fly Template v3.0，基于 layui 的极简社区页面模版</h1>
@@ -159,24 +158,8 @@
           <p>
             该模版由 layui官方社区（<a href="http://fly.layui.com/" target="_blank">fly.layui.com</a>）倾情提供，只为表明我们对 layui 执着的信念、以及对未来持续加强的承诺。该模版基于 layui 搭建而成，可作为极简通用型社区的页面支撑。
           </p>
-          <p>更新日志：</p>
-<pre>
-# v3.0 2017-11-30
-* 采用 layui 2.2.3 作为 UI 支撑
-* 全面同步最新的 Fly 社区风格，各种细节得到大幅优化
-* 更友好的响应式适配能力
-</pre>
-          
-          下载<hr>
-          <p>
-            官网：<a href="http://www.layui.com/template/fly/" target="_blank">http://www.layui.com/template/fly/</a><br>
-            码云：<a href="https://gitee.com/sentsin/fly/" target="_blank">https://gitee.com/sentsin/fly/</a><br>
-            GitHub：<a href="https://github.com/layui/fly" target="_blank">https://github.com/layui/fly</a>
-          </p>
-          封面<hr>
-          <p>
-            <img src="../../res/images/fly.jpg" alt="Fly社区">
-          </p>
+
+
         </div>
       </div>
 
@@ -286,70 +269,15 @@
             </div>
           </form>
         </div>
+
       </div>
-    </div>
-    <div class="layui-col-md4">
-      <dl class="fly-panel fly-list-one">
-        <dt class="fly-panel-title">本周热议</dt>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-        <dd>
-          <a href="">基于 layui 的极简社区页面模版</a>
-          <span><i class="iconfont icon-pinglun1"></i> 16</span>
-        </dd>
-
-        <!-- 无数据时 -->
-        <!--
-        <div class="fly-none">没有相关数据</div>
-        -->
-      </dl>
-
-
-
     </div>
   </div>
 </div>
 
 <div class="fly-footer">
-  <p><a href="http://fly.layui.com/" target="_blank">Fly社区</a> 2017 &copy; <a href="http://www.layui.com/" target="_blank">layui.com 出品</a></p>
   <p>
-    <a href="http://fly.layui.com/jie/3147/" target="_blank">付费计划</a>
-    <a href="http://www.layui.com/template/fly/" target="_blank">获取Fly社区模版</a>
-    <a href="http://fly.layui.com/jie/2461/" target="_blank">微信公众号</a>
+    软件二班七组出品
   </p>
 </div>
 

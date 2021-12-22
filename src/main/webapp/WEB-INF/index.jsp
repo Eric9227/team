@@ -70,12 +70,10 @@
                     <img src="<%=user.getAvatar()%>">
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="user/set.html"><i class="layui-icon">&#xe620;</i>基本设置</a></dd>
-                    <dd><a href="user/message.html"><i class="iconfont icon-tongzhi" style="top: 4px;"></i>我的消息</a></dd>
-                    <dd><a href="user/home.html"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
+                    <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
                     </dd>
                     <hr style="margin: 5px 0;">
-                    <dd><a href="/user/logout/" style="text-align: center;">退出</a></dd>
+                    <dd><a style="text-align: center;" onclick="toLoginOut()">退出</a></dd>
                 </dl>
             </li>
             <%
@@ -90,13 +88,6 @@
     <div class="layui-container">
         <ul class="layui-clear">
             <li class="layui-hide-xs layui-this"><a href="/">首页</a></li>
-            <li><a href="jie/index.html">提问</a></li>
-            <li><a href="jie/index.html">分享<span class="layui-badge-dot"></span></a></li>
-            <li><a href="jie/index.html">讨论</a></li>
-            <li><a href="jie/index.html">建议</a></li>
-            <li><a href="jie/index.html">公告</a></li>
-            <li><a href="jie/index.html">动态</a></li>
-            <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><span class="fly-mid"></span></li>
 
             <!-- 用户登入后显示 -->
             <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li>
@@ -105,12 +96,12 @@
         </ul>
 
         <div class="fly-column-right layui-hide-xs">
-            <span class="fly-search"><i class="layui-icon"></i></span>
-            <a href="jie/add.html" class="layui-btn">发表新帖</a>
+<%--            <span class="fly-search"><i class="layui-icon"></i></span>--%>
+            <a href="/messageAdd" class="layui-btn">发表新帖</a>
         </div>
         <div class="layui-hide-sm layui-show-xs-block"
              style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-            <a href="jie/add.html" class="layui-btn">发表新帖</a>
+            <a href="/messageAdd" class="layui-btn">发表新帖</a>
         </div>
     </div>
 </div>
@@ -123,17 +114,9 @@
             <div class="fly-panel" style="margin-bottom: 0;">
 
                 <div class="fly-panel-title fly-filter">
-                    <a href="" class="layui-this">综合</a>
+                    <a href="" class="layui-this">文章</a>
                     <span class="fly-mid"></span>
-                    <a href="">未结</a>
-                    <span class="fly-mid"></span>
-                    <a href="">已结</a>
-                    <span class="fly-mid"></span>
-                    <a href="">精华</a>
-                    <span class="fly-filter-right layui-hide-xs">
-            <a href="" class="layui-this">按最新</a>
-            <span class="fly-mid"></span>
-            <a href="">按热议</a>
+
           </span>
                 </div>
                 <ul class="fly-list">
@@ -145,7 +128,7 @@
                     %>
 
                     <li>
-                        <a href="/detailPage?account=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" class="fly-avatar">
+                        <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" class="fly-avatar">
                             <img src="<%=author.getAvatar()%>"
                                  alt="<%=map.get("account")%>">
                         </a>
@@ -181,20 +164,23 @@
                         }
                     %>
 
-                   <%--
-                    <div style="text-align: center">
-                        <div class="laypage-main">
-                            <a href="jie/index.html" class="laypage-next">更多求解</a>
-                        </div>
 
-                    </div>
-                    --%>
                 </ul>
             </div>
         </div>
     </div>
 
     <script src="../assets/layui/layui.js"></script>
+
+    <script type="text/javascript">
+        function toLoginOut(){
+            var result = confirm("确定要退出吗？");
+            if(result){
+                location.href="/toLoginOut";
+            }
+        }
+    </script>
+
     <script>
         layui.cache.page = '';
         layui.cache.user = {

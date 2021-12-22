@@ -22,4 +22,8 @@ public class MessageBoardAdd {
         messageBoard.setLeaveAddTime(nowTime);
         return jdbcUtil.executeSql(sql, messageBoard.getAccount(),messageBoard.getAuthorAddTime(),messageBoard.getLeaveWord(),messageBoard.getLeaveWordAccount(),messageBoard.getLeaveAddTime());
     }
+
+    public static void main(String[] args) {
+
+    }
 }

@@ -13,14 +13,10 @@ import java.io.IOException;
 public class LoginPageServlet extends BaseServlet {
     @Override
     protected void execute() {
-        try {
-            System.out.println("经过loginPage的servlet");
-            request.getRequestDispatcher("/WEB-INF/user/login/login.jsp").forward(request,response);
 
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            System.out.println("经过loginPage的servlet");
+            forward("user/login/login.jsp");
+//            request.getRequestDispatcher("/WEB-INF/user/login/login.jsp").forward(request,response);
+
     }
 }

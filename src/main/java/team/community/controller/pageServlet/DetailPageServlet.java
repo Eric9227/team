@@ -13,7 +13,6 @@ import team.community.dao.query.UserQuery;
 import javax.servlet.annotation.WebServlet;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -47,6 +46,6 @@ public class DetailPageServlet extends BaseServlet {
         request.setAttribute("messageBoards",messageBoards);
 
 
-        forward("user/page/detail.jsp?account="+author +"&addTime="+addTime);
+        forward("user/page/detail.jsp");
     }
 }

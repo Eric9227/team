@@ -22,11 +22,6 @@ public class Message {
     @FieldName("add_time")
     private LocalDateTime addTime; // LocalDate\LocalTime
 
-    /**
-     * 专栏;所属的专栏
-     */
-    @FieldName("special_column")
-    private String specialColumn;
 
     /**
      * 标题;标题

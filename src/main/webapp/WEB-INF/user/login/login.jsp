@@ -184,6 +184,7 @@
         </div>
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>登录</button>
+            <a href="/registerPage"><button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" type="button">注册</button></a>
         </div>
     </form>
 </div>

@@ -11,7 +11,7 @@ import java.io.IOException;
  */
 public class LoginFilter implements Filter {
 
-    private static final String[] urls ={ "/registerPage", "/index.html", "/loginPage", "/login", "/MessageData.json","/captcha"};
+    private static final String[] urls ={"/user/userAdd", "/registerPage", "/index.html", "/loginPage", "/login", "/MessageData.json","/captcha"};
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

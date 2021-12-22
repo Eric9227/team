@@ -15,7 +15,7 @@
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="/">
-      <img src="../assets/images/logo.png" alt="layui">
+      <img src="/assets/images/logo.png" alt="layui">
     </a>
 
     <ul class="layui-nav fly-nav-user">
@@ -107,6 +107,16 @@
 </div>
 
 <script src="/assets/layui/layui.js"></script>
+
+<script type="text/javascript">
+  function toLoginOut(){
+    var result = confirm("确定要退出吗？");
+    if(result){
+      location.href="/toLoginOut";
+    }
+  }
+</script>
+
 <script>
 layui.cache.page = 'user';
 layui.cache.user = {

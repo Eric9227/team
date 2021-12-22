@@ -10,7 +10,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Fly Template v3.0，基于 layui 的极简社区页面模版</title>
+  <title>文章详情</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="/assets/layui/css/layui.css">
   <link rel="stylesheet" href="/assets/css/global.css">
@@ -27,9 +27,9 @@
 <div class="fly-header layui-bg-black">
   <div class="layui-container">
     <a class="fly-logo" href="/">
-      <img src="/assets/images/logo.png" alt="layui">
+      <img src="../assets/images/logo.png" alt="layui">
     </a>
-    
+
     <ul class="layui-nav fly-nav-user">
       <%
         User user = null;
@@ -69,12 +69,12 @@
 
           <img src="<%=user.getAvatar()%>">
         </a>
-          <dl class="layui-nav-child">
-              <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
-              </dd>
-              <hr style="margin: 5px 0;">
-              <dd><a style="text-align: center;" onclick="toLoginOut()">退出</a></dd>
-          </dl>
+        <dl class="layui-nav-child">
+          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
+          </dd>
+          <hr style="margin: 5px 0;">
+          <dd><a style="text-align: center;" onclick="toLoginOut()">退出</a></dd>
+        </dl>
       </li>
       <%
         }
@@ -84,25 +84,23 @@
   </div>
 </div>
 
+<div class="fly-panel fly-column">
+  <div class="layui-container">
+    <ul class="layui-clear">
+      <li class="layui-hide-xs layui-this"><a href="/">首页</a></li>
 
-<div class="layui-hide-xs">
-  <div class="fly-panel fly-column">
-    <div class="layui-container">
-      <ul class="layui-clear">
-        <li class="layui-hide-xs"><a href="/">首页</a></li>
+      <!-- 用户登入后显示 -->
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li>
+      </li>
+    </ul>
 
-        <!-- 用户登入后显示 -->
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html">我发表的贴</a></li>
-        <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="../user/index.html#collection">我收藏的贴</a></li>
-      </ul>
-
-      <div class="fly-column-right layui-hide-xs">
-<%--        <span class="fly-search"><i class="layui-icon"></i></span>--%>
-        <a href="add.html" class="layui-btn">发表新帖</a>
-      </div>
-      <div class="layui-hide-sm layui-show-xs-block" style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
-        <a href="add.html" class="layui-btn">发表新帖</a>
-      </div>
+    <div class="fly-column-right layui-hide-xs">
+      <%--            <span class="fly-search"><i class="layui-icon"></i></span>--%>
+      <a href="/messageAdd" class="layui-btn">发表新帖</a>
+    </div>
+    <div class="layui-hide-sm layui-show-xs-block"
+         style="margin-top: -10px; padding-bottom: 10px; text-align: center;">
+      <a href="/messageAdd" class="layui-btn">发表新帖</a>
     </div>
   </div>
 </div>
@@ -120,20 +118,14 @@
         <h1><%=thisMessage.get("title")%></h1>
         <div class="fly-detail-info">
 
-          <span class="layui-badge layui-bg-red">精帖</span>
+          <a href="/DeleteServlet?author=<%=thisAuthor.getAccount()%>&addTime=<%=thisMessage.get("addTime")%>"><span class="layui-badge layui-bg-black">删除</span></a>
 
-          <div class="fly-admin-box" data-id="123">
-            <span class="layui-btn layui-btn-xs jie-admin" type="del">删除</span>
-
-            <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="1">加精</span>
-            <!-- <span class="layui-btn layui-btn-xs jie-admin" type="set" field="status" rank="0" style="background-color:#ccc;">取消加精</span> -->
-          </div>
           <span class="fly-list-nums">
             <a href="#comment"><i class="iconfont" title="回答">&#xe60c;</i> 66</a>
           </span>
         </div>
         <div class="detail-about">
-          <a class="fly-avatar" href="作者详情页">
+          <a class="fly-avatar" <%--href="作者详情页"--%>>
             <img src="<%=thisAuthor.getAvatar()%>" alt="<%=thisAuthor.getUsername()%>>">
           </a>
           <div class="fly-detail-user">
@@ -264,18 +256,28 @@
 </div>
 
 <script src="/assets/layui/layui.js"></script>
+
+<script type="text/javascript">
+  function toLoginOut(){
+    var result = confirm("确定要退出吗？");
+    if(result){
+      location.href="/toLoginOut";
+    }
+  }
+</script>
+
 <script>
   layui.cache.page = 'jie';
   layui.cache.user = {
     username: '游客'
     ,uid: -1
-    ,avatar: '../../res/images/avatar/00.jpg'
+    ,avatar: '/assets/images/avatar/00.jpg'
     ,experience: 83
     ,sex: '男'
   };
   layui.config({
     version: "3.0.0"
-    ,base: '../../res/mods/'
+    ,base: '/assets/mods/'
   }).extend({
     fly: 'index'
   }).use(['fly', 'face'], function(){

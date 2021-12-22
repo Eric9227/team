@@ -58,8 +58,9 @@
           <img src="<%=user.getAvatar()%>">
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
-          </dd>
+          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
+          <dd><a href="/myMessage"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>用户中心</a></dd>
+
           <hr style="margin: 5px 0;">
           <dd><a style="text-align: center;" onclick="toLoginOut()">退出</a></dd>
         </dl>

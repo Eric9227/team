@@ -70,8 +70,9 @@
           <img src="<%=user.getAvatar()%>">
         </a>
         <dl class="layui-nav-child">
-          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a>
-          </dd>
+          <dd><a href="/home"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>我的主页</a></dd>
+          <dd><a href="/myMessage"><i class="layui-icon" style="margin-left: 2px; font-size: 22px;">&#xe68e;</i>用户中心</a></dd>
+
           <hr style="margin: 5px 0;">
           <dd><a style="text-align: center;" onclick="toLoginOut()">退出</a></dd>
         </dl>
@@ -160,14 +161,17 @@
           <legend>回帖</legend>
         </fieldset>
 
-        <%
-          List list = (List) request.getAttribute("messageBoards");
-          for (int i = 0; i < list.size(); i++) {
-            Map messageBoard = (Map)list.get(i);
-            User leaveUser = UserQuery.getUserByAccount((String) messageBoard.get("leaveWordAccount"));
-        %>
+
 
         <ul class="jieda" id="jieda" >
+          <%
+            List list = (List) request.getAttribute("messageBoards");
+
+            for (int i = 0; i < list.size(); i++) {
+              Map messageBoard = (Map)list.get(i);
+              User leaveUser = UserQuery.getUserByAccount((String) messageBoard.get("leaveWordAccount"));
+          %>
+
           <li data-id="111" class="jieda-daan">
             <a name="item-1111111111"></a>
             <div class="detail-about detail-about-reply">
@@ -213,13 +217,20 @@
               </div>
             </div>
           </li>
+          <%
+            }
+          %>
 
-          <!-- 无数据时 -->
-          <!-- <li class="fly-none">消灭零回复</li> -->
+          <%
+            if(list.size()<1){
+          %>
+          <li class="fly-none" style="color: rgba(236,64,64,0.93);font-size: 15px;font-weight: bolder" >消灭零回复</li>
+          <%
+            }
+          %>
+
         </ul>
-        <%
-          }
-        %>
+
 
         <fieldset class="layui-elem-field layui-field-title" style="text-align: center;">
           <legend>发布回帖</legend>
@@ -239,7 +250,7 @@
             </div>
             <div class="layui-form-item">
               <input type="hidden" name="jid" value="123">
-              <button type="submit" lay-submit>提交回复</button>
+              <button class="layui-btn" type="submit" lay-submit>提交回复</button>
             </div>
           </form>
         </div>

@@ -14,7 +14,7 @@ public class MyMessageByAccount {
      * @return
      */
     public static List<Message> getMessageByAccount(String account) {
-        String sql = "select * from message where account ?";
+        String sql = "select * from message where account = ?";
         List<Message> messages = jdbcUtil.executeQuery(sql, Message.class, account);
         return messages;
     }

@@ -17,7 +17,7 @@ public class MessageBoardAdd {
      * @return Boolean
      */
     public static Boolean insert(MessageBoard messageBoard){
-        String sql = "insert into message(account, author_add_time, leave_word, leave_word_account, leave_add_time ) value(?,?,?,?,?)";
+        String sql = "insert into message_board(account, author_add_time, leave_word, leave_word_account, leave_add_time ) value(?,?,?,?,?)";
         LocalDateTime nowTime = LocalDateTime.now();
         messageBoard.setLeaveAddTime(nowTime);
         return jdbcUtil.executeSql(sql, messageBoard.getAccount(),messageBoard.getAuthorAddTime(),messageBoard.getLeaveWord(),messageBoard.getLeaveWordAccount(),messageBoard.getLeaveAddTime());

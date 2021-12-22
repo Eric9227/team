@@ -46,6 +46,7 @@ public class DetailPageServlet extends BaseServlet {
         List<MessageBoard> messageBoards = MessageBoardQuery.getMessageBoard(author, ldt);
         request.setAttribute("messageBoards",messageBoards);
 
+
         forward("user/page/detail.jsp?account="+author +"&addTime="+addTime);
     }
 }

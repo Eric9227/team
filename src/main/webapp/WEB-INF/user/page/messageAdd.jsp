@@ -135,6 +135,15 @@
 </div>
 
 <script src="./assets/layui/layui.js"></script>
+<script type="text/javascript">
+  function toLoginOut(){
+    var result = confirm("确定要退出吗？");
+    if(result){
+      location.href="/toLoginOut";
+    }
+  }
+</script>
+
 <script>
 layui.config({
   version: "3.0.0"

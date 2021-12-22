@@ -92,7 +92,7 @@
       <li class="layui-hide-xs layui-this"><a href="/">首页</a></li>
 
       <!-- 用户登入后显示 -->
-      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="user/index.html">我发表的贴</a></li>
+      <li class="layui-hide-xs layui-hide-sm layui-show-md-inline-block"><a href="/myMessage">我发表的贴</a></li>
       </li>
     </ul>
 
@@ -132,11 +132,11 @@
           </span>
         </div>
         <div class="detail-about">
-          <a class="fly-avatar" <%--href="作者详情页"--%>>
+          <a class="fly-avatar" href="/authorHomePage?author=<%=thisAuthor.getAccount()%>">
             <img src="<%=thisAuthor.getAvatar()%>" alt="<%=thisAuthor.getUsername()%>>">
           </a>
           <div class="fly-detail-user">
-            <a href="../user/home.html" class="fly-link">
+            <a href="/authorHomePage?author=<%=thisAuthor.getAccount()%>" class="fly-link">
               <cite><%=thisAuthor.getUsername()%></cite>
               <%
                 if(thisAuthor.getVip()>0){
@@ -198,7 +198,7 @@
                 <%
                   if(leaveUser.getAccount().equals(thisAuthor.getAccount())){
                 %>
-                <span>(楼主)</span>
+                <span style="color: red">(楼主)</span>
                 <%
                   }
                 %>
@@ -285,6 +285,7 @@
   }
 </script>
 
+<%--
 <script>
   layui.cache.page = 'jie';
   layui.cache.user = {
@@ -311,7 +312,34 @@
     */
   });
 </script>
+--%>
 
+<%--
+<script>
+  layui.config({
+    version: "3.0.0"
+    ,base: './assets/mods/'
+  }).extend({
+    fly: 'index'
+  }).use('fly');
+</script>
+--%>
 
+<script>
+  layui.cache.page = '';
+  layui.cache.user = {
+    username: '游客'
+    , uid: -1
+    , avatar: './assets/images/avatar/00.jpg'
+    , experience: 83
+    , sex: '男'
+  };
+  layui.config({
+    version: "3.0.0"
+    , base: './assets/mods/' //这里实际使用时，建议改成绝对路径
+  }).extend({
+    fly: 'index'
+  }).use('fly');
+</script>
 </body>
 </html>

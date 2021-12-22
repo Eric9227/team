@@ -129,7 +129,7 @@
                     %>
 
                     <li>
-                        <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" class="fly-avatar">
+                        <a href="/authorHomePage?author=<%=author.getAccount()%>" class="fly-avatar">
                             <img src="<%=author.getAvatar()%>"
                                  alt="<%=author.getUsername()%>">
                         </a>
@@ -138,7 +138,7 @@
                             <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>"><%=map.get("title")%></a>
                         </h2>
                         <div class="fly-list-info">
-                            <a href="/detailPage?author=<%=author.getAccount()%>&addTime=<%=map.get("addTime")%>" link>
+                            <a href="/authorHomePage?author=<%=author.getAccount()%>" link>
                                 <cite><%=author.getUsername()%></cite>
                                 <%
                                     if(author.getVip()>0){

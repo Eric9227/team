@@ -7,10 +7,11 @@ import javax.servlet.annotation.WebServlet;
 /**
  * @author TAN00XU
  */
-@WebServlet("/home")
-public class HomePageServlet extends BaseServlet {
+@WebServlet("/authorHomePage")
+public class AuthorHomePageServlet extends BaseServlet {
     @Override
     protected void execute() {
-        forward("user/page/home.jsp");
+        String author = request.getParameter("author");
+        forward("user/page/authorHome.jsp?thisAuthor="+author);
     }
 }

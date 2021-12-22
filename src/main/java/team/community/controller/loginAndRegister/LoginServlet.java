@@ -42,7 +42,7 @@ public class LoginServlet extends BaseServlet {
             responseJSON(Resp.no("账号或密码有误"));
         } else {
             //登录成功
-            System.out.println("登录成功");
+            System.out.println(user.getUsername()+"登录成功");
 
             //登录成功，储存当前用户信息到Session中
             request.getSession().setAttribute("user", user);

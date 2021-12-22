@@ -5,7 +5,7 @@ import team.community.bean.Message;
 import team.community.bean.MessageBoard;
 import team.community.bean.User;
 import team.community.controller.BaseServlet;
-import team.community.controller.message.MyMessageQueryServlet;
+
 import team.community.dao.query.MessageBoardQuery;
 import team.community.dao.query.ThisMessageQuery;
 import team.community.dao.query.UserQuery;

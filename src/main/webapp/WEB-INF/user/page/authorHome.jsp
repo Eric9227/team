@@ -1,4 +1,6 @@
 <%@ page import="team.community.bean.User" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="team.community.dao.query.UserQuery" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -73,24 +75,29 @@
   </div>
 </div>
 
+<%
 
+  String thisAuthorAccount = request.getParameter("author");
+  User thisAuthor = UserQuery.getUserByAccount(thisAuthorAccount);
+%>
 <div class="fly-home fly-panel" >
-  <img src="<%=user.getAvatar()%>" alt="<%=user.getUsername()%>">
+  <img src="<%=thisAuthor.getAvatar()%>" alt="<%=user.getUsername()%>">
   <%
-    if(user.getVip()>0){
+    if(thisAuthor.getVip()>0){
   %>
   <i class="iconfont icon-renzheng" title="七组社区认证"></i>
   <%
     }
   %>
+
   <h1>
-    <%=user.getUsername()%>
+    <%=thisAuthor.getUsername()%>
     <%--<i class="iconfont icon-nan"></i>
     <i class="iconfont icon-nv"></i>--%>
     <%
-      if(user.getVip()>0){
+      if(thisAuthor.getVip()>0){
     %>
-    <i class="layui-badge fly-badge-vip">VIP<%=user.getVip()%></i>
+    <i class="layui-badge fly-badge-vip">VIP<%=thisAuthor.getVip()%></i>
     <%
       }
     %>

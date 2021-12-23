@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * 所有文章的信息
  * @author TAN00XU
  */
 @WebServlet("/MessageData.json")
@@ -26,17 +27,8 @@ public class MessageDataServlet extends BaseServlet {
     @SneakyThrows
     @Override
     protected void execute() {
-/*
 
-        List<Message> messages = MessageQuery.getAllMessage();
-        System.out.println("查到的信息：" + messages);
 
-        //响应数据
-        responseJSON(Resp.ok("获取到数据", messages));
-
-*/
-
-        List<Message> messages = MessageQuery.getAllMessage();
 
         /*List<Map> mapLimap = new ArrayList<>(messages.size());
         for (Message message : messages) {
@@ -47,6 +39,8 @@ public class MessageDataServlet extends BaseServlet {
 
             mapLimap.add(beanToMap);
         }*/
+        List<Message> messages = MessageQuery.getAllMessage();
+
         List<Map> mapList = parseTime(messages, "addTime");
         System.out.println("查到的信息：" + mapList);
 

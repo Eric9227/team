@@ -188,7 +188,7 @@
         </div>
     </form>
 </div>
-<div class="login-copyright">copyright © 2020 easyweb.vip all rights reserved.</div>
+<div class="login-copyright">二班七组制作的社区</div>
 
 <!-- js部分 -->
 <script type="text/javascript" src="/assets/layui/layui.js"></script>

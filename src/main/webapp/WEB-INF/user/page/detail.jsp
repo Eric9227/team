@@ -179,12 +179,12 @@
           <li data-id="111" class="jieda-daan">
             <a name="item-1111111111"></a>
             <div class="detail-about detail-about-reply">
-              <a class="fly-avatar" href="">
+              <a class="fly-avatar" href="/authorHomePage?author=<%=leaveUser.getAccount()%>">
                 <img src="<%=leaveUser.getAvatar()%>" alt="<%=leaveUser.getUsername()%>">
               </a>
 
               <div class="fly-detail-user">
-                <a href="" class="fly-link">
+                <a href="/authorHomePage?author=<%=leaveUser.getAccount()%>" class="fly-link">
                   <cite><%=leaveUser.getUsername()%></cite>
                   <%
                     if(leaveUser.getVip()>0){
